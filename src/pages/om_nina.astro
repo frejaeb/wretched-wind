@@ -8,7 +8,7 @@ import MainLayout from "../layouts/MainLayout.astro"
     <section>
         <section class="grid_1">
             
-            <img src="/img_gaffel/nina1.webp" alt="Nina">
+            <img class="img_nina1" src="/img_gaffel/nina1.webp" alt="Nina">
       
             <article class="mobile_box grid_box">
                 <h2>Livslang inspiration</h2>
@@ -20,7 +20,7 @@ import MainLayout from "../layouts/MainLayout.astro"
         </section>
           
         <section class="grid_1">
-           <img class="order1" src="/img_gaffel/nina2.webp" alt="Nina">
+           <img class="order1 img_nina2" src="/img_gaffel/nina2.webp" alt="Nina">
            <article class=" mobile_box">
                 <h2>Min rejse som smykkedesigner </h2>
                 <p>Nina blev elev på Værkstedet for Smykker og Brugsting ved guldsmed Carsten From. Nu var hun ikke længere i tvivl om, hvilken vej hun skulle følge. Hun søgte mod nye steder, der kunne inspirere og sugede til sig.</p>
@@ -119,5 +119,12 @@ import MainLayout from "../layouts/MainLayout.astro"
     
     } 
 
+    .img_nina1{
+         padding: 30px;
+        }
+    .img_nina2{
+         padding: 30px;
+         margin-left: 20px;
+        }
         }
 </style>

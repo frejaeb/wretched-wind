@@ -1,0 +1,98 @@
+---
+import MainLayout from "../layouts/MainLayout.astro"
+
+---
+
+<MainLayout>
+    <h1>Om Nina</h1>
+    <section>
+        <section class="grid_1">
+            
+            <img class="img_nina1" src="/img_gaffel/nina1.webp" alt="Nina">
+      
+            <article class="mobile_box grid_box">
+                <h2>Livslang inspiration</h2>
+                <p>Smykkedesign har fyldt Ninas liv så længe, at hun ikke husker, hvornår det startede. Når søstrene badede neden for sommerhuset, samlede hun sten i strandkanten. </p>
+                <p>Det var ikke de farvestrålende pofyr og granit, der optog hende, snarere det naturlige skin i den sorte lava eller spillet i flintens politur.</p>
+                <p>Hun sammensatte stensamlingen på sommerhusets terrasse, på hylder, i vindueskarme, og det var som om, der for hende opstod et nyt visuelt sprog i farverne og formernes samspil. </p>
+                <p>Senere havde indretningen af hendes stuer, anretningen af et hverdagsmåltid eller en gåtur langs skovbrynet ikke blot et rationelt sigte.</p>
+            </article>
+        </section>
+          
+        <section class="grid_1">
+           <img class="order1 img_nina2" src="/img_gaffel/nina2.webp" alt="Nina">
+           <article class=" mobile_box">
+                <h2>Min rejse som smykkedesigner </h2>
+                <p>Nina blev elev på Værkstedet for Smykker og Brugsting ved guldsmed Carsten From. Nu var hun ikke længere i tvivl om, hvilken vej hun skulle følge. Hun søgte mod nye steder, der kunne inspirere og sugede til sig.</p>
+                <p> På Skolen for Billedkunst, hos en portrætfotograf og på et tegnefilmstudie – imens hun sneg sig til at designe smykker i hver en ledig stund. </p>
+                <p>Siden drog hun landet rundt og udstillede sine kollektioner på slotte og markeder. Og alt sammen ledte det til, at hun i dag har genfundet “somrene i strandkanten” i sin smykkeforretning, Nina Rønde Jewelry ved Rundetårn.</p>
+                <p>Her realiserer hun det, hun har drømt om, siden hun var barn: I de fleste af døgnets timer er Nina fordybet i at lægge personlighed i formgivningen af sine organiske smykker, og ind imellem må hun knibe sig selv i armen for, om hun tør tro på, at drømmen virkelig er gået i opfyldelse.</p>
+            </article>
+        </section>
+
+        
+    </section>
+</MainLayout>
+
+<style>
+        h1,h2{
+        font-weight: 200;
+        }
+
+        h1{
+        font-size: var(--font-size-xxxl);
+        text-align: center;
+ 
+        }
+        h2{
+            font-size: var(--font-size-l);
+              margin-bottom: 20px;
+              margin-top: 10px;
+        }
+        p{
+            margin-bottom: 10px;
+        }
+        img{
+            margin-top: 20px;
+        }
+        .grid_1{
+            margin: 5%;
+        }
+          .mobile_box{
+            display: grid;
+            margin-top: 5%;
+            padding: 5%;
+            background-color: var(--box-color);
+        }
+      
+    @media (min-width: 760px){
+
+        img{
+            margin-top: 0px;
+        }
+
+     
+
+        .grid_1{
+            display: grid;
+            grid-template-columns: 1fr 1fr;  /*To kolonner med lige bredde */
+            background-color: var(--box-color);
+        
+        }
+
+        .order1{
+             display: flex;
+        order: 1;
+   
+        }
+
+
+    .img_nina1{
+         padding: 30px;
+        }
+    .img_nina2{
+         padding: 30px;
+         margin-left: 20px;
+        }
+        }
+</style>
