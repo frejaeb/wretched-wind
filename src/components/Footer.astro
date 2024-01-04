@@ -1,5 +1,6 @@
 ---
 import "../styles/global.css";
+
 ---
 <footer>
 <section class="container"> 
@@ -21,8 +22,7 @@ import "../styles/global.css";
 <section class="bund grid_1_1_1">
     <article>
         <button type="button" class="collapsible">Åbningstider</button>
-        <h3>Åbningstider</h3>
-        <article class="web openingshours">
+        <article class="web openingshours content">
 		<p>Mandag - Lørdag:</p>
 		<p>11:00 - 17:30</p>
 		<p>Søndag 3/12:</p>
@@ -81,10 +81,55 @@ import "../styles/global.css";
     </article>
 
 </section>
+
+<script>
+function setupCollapsible() {
+  var coll = document.getElementsByClassName("collapsible");
+  var i;
+
+  for (i = 0; i < coll.length; i++) {
+    coll[i].addEventListener("click", function() {
+      this.classList.toggle("active");
+      var content = this.nextElementSibling;
+      if (content.style.display === "block") {
+        content.style.display = "none";
+      } else {
+        content.style.display = "block";
+      }
+    });
+  }
+}
+
+// Check if the screen width is less than or equal to 768 pixels
+if (window.innerWidth <= 985) {
+  setupCollapsible();
+}
+
+</script>
 </footer>
 
-<style>
 
+<style>
+/****************fold ud menu mobil************************/
+
+/* Style the button that is used to open and close the collapsible content */
+.collapsible {
+  background-color: transparent;
+  color: #ffffff;
+  cursor: pointer;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: var(--font-size-s);
+  font-family: var(--font-family-subtitle); 
+        font-weight: 100;
+}
+/* Style the collapsible content. Note: hidden by default */
+.content {
+  display: none;
+  overflow: hidden;
+  
+}
  
     h2{
         font-size: var(--font-size-l);
