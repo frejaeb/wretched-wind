@@ -1,29 +1,28 @@
 ---
+/* [] her kommer der noget dynamisk. getStaticPaths: bruger til at generere sider, som er alle vors singelwiv.*/
 export async function getStaticPaths() {
-  /*   henter vores superbase ved hjæp af fech vi tilføjer v1 og ninaroende -arry er en list/tabel hele superbasen
-   arry hvert opbject repersentere en denne side der skal genreres, 
+  /*
+    henter vores superbase ved hjæp af fech vi tilføjer v1 og ninaroende -arry er en list/tabel hele superbasen
+   arry hvert opbject repersentere denne side der skal genreres, 
    her er der objevter inde i hver arry fx kvinde navn og andre list information*/
   const data = await fetch("https://eqchkvjopeqebfwbmvay.supabase.co/rest/v1/ninaroende",
     {
+    
+        /* bruger get til at hente api nøgle for at åbne indhols superbase */
         method: "GET",
         headers: {
-            /* bruger get til at hente api nøgle for at åbne indhols superbase */
+            
             apikey:
                 "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVxY2hrdmpvcGVxZWJmd2JtdmF5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MDE4NzIxMTksImV4cCI6MjAxNzQ0ODExOX0.O2_NQhUNI9HIpTCIUfmjA-0sTTdDlV9B_WtqGsaBY_I"
         },
-        /*then er en metode, der anvendes på resultatet af fetch-anmodningen. 
-        Den håndterer resultatet af anmodningen, som er repræsenteret af response-objektet.*/
+
+        /*then er en metode der håndterer resultatet af fetch-anmodningen, som er repræsenteret af response-objektet.*/
     }).then(response => response.json());
     
   /* Data hentes fra Superbase-databasen.
-  Der bruges map-funktionen til at gennemløbe hvert element i data-arrayet 
-  og oprette et nyt objekt for hver `smykke`.
-  For hvert smykke-objekt oprettes et nyt objekt med to nøgler:
-params: Indeholder nødvendige parametre for at opbygge stien til denne side.
- Her bruges pagename som parameter, og det får værdien af smykke.slug.
-props: Indeholder data, der skal videresendes til side, 
-der bliver genereret. Her bruges myData som nøgle, 
-og den får værdien af hele smykke-objektet. */
+ generere en liste af objekter, hvor hvert objekt repræsenterer data for en side. 
+ Hver side får en unik sti (pagename), og de tilknyttede data sendes som egenskaber (props) 
+ til siden */
   return data.map((smykke) => {
     return {
       params: { pagename: smykke.slug },
