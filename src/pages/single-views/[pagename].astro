@@ -1,14 +1,29 @@
 ---
 export async function getStaticPaths() {
+  /*   henter vores superbase ved hjæp af fech vi tilføjer v1 og ninaroende -arry er en list/tabel hele superbasen
+   arry hvert opbject repersentere en denne side der skal genreres, 
+   her er der objevter inde i hver arry fx kvinde navn og andre list information*/
   const data = await fetch("https://eqchkvjopeqebfwbmvay.supabase.co/rest/v1/ninaroende",
     {
         method: "GET",
         headers: {
+            /* bruger get til at hente api nøgle for at åbne indhols superbase */
             apikey:
                 "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVxY2hrdmpvcGVxZWJmd2JtdmF5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MDE4NzIxMTksImV4cCI6MjAxNzQ0ODExOX0.O2_NQhUNI9HIpTCIUfmjA-0sTTdDlV9B_WtqGsaBY_I"
         },
+        /*then er en metode, der anvendes på resultatet af fetch-anmodningen. 
+        Den håndterer resultatet af anmodningen, som er repræsenteret af response-objektet.*/
     }).then(response => response.json());
-
+    
+  /* Data hentes fra Superbase-databasen.
+  Der bruges map-funktionen til at gennemløbe hvert element i data-arrayet 
+  og oprette et nyt objekt for hver `smykke`.
+  For hvert smykke-objekt oprettes et nyt objekt med to nøgler:
+params: Indeholder nødvendige parametre for at opbygge stien til denne side.
+ Her bruges pagename som parameter, og det får værdien af smykke.slug.
+props: Indeholder data, der skal videresendes til side, 
+der bliver genereret. Her bruges myData som nøgle, 
+og den får værdien af hele smykke-objektet. */
   return data.map((smykke) => {
     return {
       params: { pagename: smykke.slug },
@@ -16,11 +31,12 @@ export async function getStaticPaths() {
     };
   });
 }
-
+/*Her importeres myData fra Astro-objektet, med data fra den specifikke side,
+ og MainLayout importeres fra layout.*/
 const { myData } = Astro.props;
 import MainLayout from "../../layouts/MainLayout.astro";
 ---
-
+<!-- mydata er indhold som hentes fra superbase -->
 <MainLayout title={myData.name}>
     <section id="breadcrumb">
         <a href="index.astro"></a>
