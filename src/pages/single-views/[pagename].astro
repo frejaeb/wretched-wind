@@ -2,7 +2,7 @@
 /* [] her kommer der noget dynamisk. getStaticPaths: bruger til at generere sider, som er alle vors singelwiv.*/
 export async function getStaticPaths() {
   /*
-    henter vores superbase ved hjæp af fech vi tilføjer v1 og ninaroende -arry er en list/tabel hele superbasen
+    henter vores superbase ved hjæp af fech vi tilføjer-arry er en list/tabel hele superbasen
    arry hvert opbject repersentere denne side der skal genreres, 
    her er der objevter inde i hver arry fx kvinde navn og andre list information*/
   const data = await fetch("https://eqchkvjopeqebfwbmvay.supabase.co/rest/v1/ninaroende",
@@ -16,7 +16,7 @@ export async function getStaticPaths() {
                 "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVxY2hrdmpvcGVxZWJmd2JtdmF5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MDE4NzIxMTksImV4cCI6MjAxNzQ0ODExOX0.O2_NQhUNI9HIpTCIUfmjA-0sTTdDlV9B_WtqGsaBY_I"
         },
 
-        /*then er en metode der håndterer resultatet af fetch-anmodningen, som er repræsenteret af response-objektet.*/
+        /*then håndterer resultatet af fetch-anmodningen, vist med response- objektet.*/
     }).then(response => response.json());
     
   /* Data hentes fra Superbase-databasen.
