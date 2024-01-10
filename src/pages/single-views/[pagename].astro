@@ -20,8 +20,8 @@ export async function getStaticPaths() {
     }).then(response => response.json());
     
   /* Data hentes fra Superbase-databasen.
- generere en liste af objekter, hvor hvert objekt repræsenterer data for en side. 
- Hver side får en unik sti (pagename), og de tilknyttede data sendes som egenskaber (props) 
+ Liste af de sider der skal genreares,  som laver unikke url´er.
+  Hver side får en unik sti (pagename), og de tilknyttede data sendes som egenskaber (props) 
  til siden */
   return data.map((smykke) => {
     return {
